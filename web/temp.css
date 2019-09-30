@@ -1,0 +1,283 @@
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: rgb(230, 230, 230);
+  overflow: hidden;
+  background-image: rgb(100, 151, 218);
+  background-image: radial-gradient(
+      rgba(255, 255, 255, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ),
+    linear-gradient(lightblue, rgb(100, 151, 218), rgb(91, 93, 219));
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 5% 1fr 1fr 1fr 5%;
+  overflow: hidden;
+}
+
+.timer-container {
+  grid-column: 3/4;
+  position: relative;
+}
+
+.commands {
+  grid-column: 2/3;
+  align-self: center;
+  padding: 10px;
+  opacity: 0;
+  cursor: pointer;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.commands:hover .restarting {
+  color: rgb(250, 250, 250);
+  text-shadow: lightblue 3px 3px 5px;
+}
+
+.commands:hover .commandBar div {
+  background-color: rgb(250, 250, 250);
+  box-shadow: lightblue 3px 3px 5px;
+}
+
+.commandBar,
+.restarting {
+  transition: all 0.5s ease-in-out;
+}
+
+.countdown {
+  font-size: 2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.countTimer {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 0;
+}
+
+.restarttext {
+  stroke-dashoffset: -220;
+  stroke-dasharray: 1416;
+}
+.reinittext {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 1s;
+  z-index: 2;
+}
+
+.reinittext.play:hover {
+  transform: translate(-50%, -50%) scale(1.2, 1.2);
+}
+
+.timerdisplay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 1s;
+  z-index: 2;
+}
+
+.timerdisplay.play:hover {
+  transform: translate(-50%, -50%) scale(1.2, 1.2);
+}
+
+.option {
+  margin-bottom: 20px;
+  justify-self: center;
+  list-style: none;
+  align-self: end;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: opTrans 0.5s forwards;
+}
+
+@keyframes opTrans {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.option li {
+  display: flex;
+  position: relative;
+  margin: 50px 0 0 0;
+}
+
+.option li a {
+  position: relative;
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+  font-size: 1em;
+}
+
+/* { */
+.option li a::before {
+  position: absolute;
+  content: " ";
+  bottom: -10px;
+  left: -10px;
+  width: 20px;
+  transform-origin: bottom left;
+  transform: scaleX(0);
+  display: block;
+  border-bottom: 1px solid white;
+  transition: 0.5s ease;
+}
+
+.option li:hover a::before {
+  transform: scaleX(1);
+}
+
+.option li.selected a::before {
+  transform: scaleX(0.5) translate(10px, -5px);
+  border-color: rgb(255, 120, 131);
+}
+/* } */
+
+/* { */
+.option li::before {
+  position: absolute;
+  content: " ";
+  display: block;
+  left: -10px;
+  bottom: -10px;
+  width: 1px;
+  border-bottom: 1px solid white;
+  border-bottom-width: 20px;
+  transform-origin: bottom left;
+  transform: scaleY(0);
+  transition: 0.5s ease;
+}
+
+.option li:hover::before {
+  transform: scaleY(1);
+}
+
+.option li.selected::before {
+  transform: scaleY(0.5) translate(+5px, -50%);
+  border-color: rgb(255, 120, 131);
+}
+/* } */
+
+.option li.selected a {
+  color: rgb(255, 120, 131);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 5% 1fr 5%;
+    grid-template-rows: 5% 1fr 1fr 1fr;
+  }
+
+  .commands {
+    align-self: start;
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+
+  .timer-container {
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+
+  .option {
+    margin-bottom: 10px;
+    grid-column: 2/3;
+    grid-row: 4/5;
+  }
+}
+
+.commandBar div {
+  height: 2px;
+  width: 25px;
+  background-color: rgb(230, 230, 230);
+  margin: 5px;
+  transition: all 0.5s ease;
+}
+
+.cbar1 {
+  transform: rotate(30deg) translate(0px, 1px);
+}
+
+.cbar2 {
+  transform: rotate(90deg) translate(0px, 12px);
+}
+
+.cbar3 {
+  transform: rotate(-30deg) translate(0px, -1px);
+}
+
+.toggle .cbar1 {
+  transform: rotate(90deg) translate(7px, 5px);
+}
+
+.toggle .cbar2 {
+  opacity: 0;
+}
+
+.toggle .cbar3 {
+  transform: rotate(90deg) translate(-7px, -5px);
+}
+
+@keyframes menuLiAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes startAnimation {
+  from {
+    stroke-dasharray: 250;
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 500;
+  }
+}
+
+@keyframes commandsAnimation {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(1.1, 1.1);
+  }
+}

@@ -1,0 +1,950 @@
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.85);
+  background: #eeeeee;
+}
+
+nav {
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #302b63;
+  background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+  z-index: 5;
+}
+
+.logo {
+  width: 380px;
+  height: 10vh;
+  fill: rgb(255, 255, 255);
+  padding: 10px;
+}
+
+.menu {
+  margin-right: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  list-style: none;
+  font-weight: bold;
+  text-transform: capitalize;
+  z-index: 6;
+}
+
+.menu li {
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* { */
+.menu li a::after {
+  position: absolute;
+  content: " ";
+  display: block;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  transform-origin: top right;
+  transform: scaleX(0);
+  border-bottom: 1px solid white;
+  transition: 0.5s ease;
+}
+
+.menu li:hover a::after {
+  transform: scaleX(1);
+}
+
+.menu li.selected a::after {
+  transform: scaleX(0.5) translate(-10px, 5px);
+  border-color: rgb(255, 120, 131);
+}
+/* } */
+
+/* { */
+.menu li::after {
+  position: absolute;
+  content: " ";
+  display: block;
+  right: -10px;
+  top: -10px;
+  width: 1px;
+  border-bottom: 1px solid white;
+  border-bottom-width: 20px;
+  transform-origin: top right;
+  transform: scaleY(0);
+  transition: 0.5s ease;
+}
+
+.menu li:hover::after {
+  transform: scaleY(1);
+}
+
+.menu li.selected::after {
+  transform: scaleY(0.5) translate(-5px, 50%);
+  border-color: rgb(255, 120, 131);
+}
+/* } */
+
+/* { */
+.menu li a::before {
+  position: absolute;
+  content: " ";
+  bottom: -10px;
+  left: -10px;
+  width: 20px;
+  transform-origin: bottom left;
+  transform: scaleX(0);
+  display: block;
+  border-bottom: 1px solid white;
+  transition: 0.5s ease;
+}
+
+.menu li:hover a::before {
+  transform: scaleX(1);
+}
+
+.menu li.selected a::before {
+  transform: scaleX(0.5) translate(10px, -5px);
+  border-color: rgb(255, 120, 131);
+}
+/* } */
+
+/* { */
+.menu li::before {
+  position: absolute;
+  content: " ";
+  display: block;
+  left: -10px;
+  bottom: -10px;
+  width: 1px;
+  border-bottom: 1px solid white;
+  border-bottom-width: 20px;
+  transform-origin: bottom left;
+  transform: scaleY(0);
+  transition: 0.5s ease;
+}
+
+.menu li:hover::before {
+  transform: scaleY(1);
+}
+
+.menu li.selected::before {
+  transform: scaleY(0.5) translate(+5px, -50%);
+  border-color: rgb(255, 120, 131);
+}
+/* } */
+
+.menu li.selected a {
+  color: rgb(255, 120, 131);
+}
+
+.menu a {
+  position: relative;
+  color: rgb(230, 230, 230);
+  text-decoration: none;
+  transition: color 0.5 linear;
+  -webkit-transition: color 0.5s linear;
+  -ms-transition: color 0.5s linear;
+}
+
+.burger div {
+  height: 2px;
+  width: 25px;
+  background-color: white;
+  margin: 5px;
+  transition: all 0.5s ease;
+}
+
+.burger:hover div {
+  background-color: rgb(255, 120, 131);
+}
+
+.burger {
+  margin-right: 10px;
+  display: none;
+  cursor: pointer;
+}
+
+#p-section {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+}
+
+#p-section::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #302b63;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 12, 41, 0.5),
+    rgba(48, 43, 99, 0.5),
+    rgba(36, 36, 62, 0.5)
+  );
+  z-index: 1;
+}
+
+#p-section img {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.nav-exe {
+  position: absolute;
+  top: 0;
+  height: 90vh;
+  width: 100%;
+  fill: #302b63;
+  fill: url(#gradient);
+  z-index: 1;
+}
+
+.presentazione {
+  text-align: center;
+  text-shadow: black 5px 5px 10px;
+  position: absolute;
+  right: 50%;
+  bottom: 50%;
+  z-index: 2;
+  transform-origin: top left;
+  transition: all 0.75s ease;
+}
+
+.presentazione h1 {
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+  padding-bottom: 20px;
+}
+
+.presentazione p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.presentazione p a {
+  text-decoration: none;
+  color: rgb(255, 120, 131);
+}
+
+.bottomleft {
+  transform: translate(-100vw, 100vw);
+  opacity: 0;
+}
+
+.openSvg {
+  padding: 10px;
+  text-shadow: black 5px 5px 10px;
+  position: absolute;
+  color: rgb(255, 120, 131);
+  background: transparent;
+  border: none;
+  left: 65%;
+  top: 23%;
+  z-index: 2;
+  cursor: pointer;
+  transform: rotate(135deg);
+  transform-origin: center center;
+  transition: all 0.7s linear;
+}
+
+.openSvg::after {
+  content: "\bb";
+  font-size: 3em;
+  display: block;
+  animation: openMe 0.5s alternate infinite;
+}
+
+.toBottomLeft {
+  transform: translate(-65vw, calc((90vh - 90vh * 0.25) - 3.5em)) rotate(-45deg);
+}
+
+@keyframes openMe {
+  form {
+    transform: translateX(10px);
+  }
+  to {
+    transform: translateX(-5px);
+  }
+}
+
+.tryIt {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  text-align: center;
+  transform: translate(100%, -50vh);
+  color: rgba(255, 255, 255, 1);
+  z-index: 2;
+  transition: all 0.75s ease;
+  opacity: 0;
+}
+
+.topToCenterAnimation {
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.tryIt h1 {
+  padding-bottom: 10px;
+  font-weight: bold;
+  text-shadow: black 5px 5px 10px;
+}
+
+.tryIt p {
+  padding-bottom: 50px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tryIt button {
+  overflow: hidden;
+  position: relative;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  border-radius: 16px 16px 16px 16px;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 5px 20px 5px 20px;
+  background: rgb(255, 120, 131);
+  background: linear-gradient(
+    to bottom right,
+    rgb(255, 120, 131),
+    rgb(255, 120, 210)
+  );
+  cursor: pointer;
+  box-shadow: #0f0c29 3px 3px 5px;
+}
+
+.tryIt button::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+  background: linear-gradient(
+    to bottom right,
+    rgb(247, 203, 207),
+    rgb(255, 199, 236)
+  );
+  left: 0;
+  top: 0;
+  border-radius: 16px 16px 16px 16px;
+  transition: all 0.5s ease;
+  transform-origin: bottom right;
+  transform: scaleX(0);
+}
+
+.tryIt button:hover::before {
+  transform: scaleX(1);
+}
+
+.tryIt button:hover {
+  box-shadow: #0f0c29 5px 5px 10px;
+  animation: goTry 0.6s linear infinite alternate;
+}
+
+@keyframes goTry {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(1.1, 1.1);
+  }
+}
+
+#WhatIs {
+  color: rgba(0, 0, 0, 0.87);
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#WhatIs h1 {
+  font-size: 2em;
+  font-weight: bold;
+  padding: 20px;
+  position: relative;
+}
+
+#WhatIs h1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 60%;
+  border-bottom: rgba(0, 0, 0, 0.5) solid 1px;
+  transform: translateX(-50%);
+}
+
+#WhatIs p {
+  margin-top: 100px;
+  padding-bottom: 10px;
+}
+
+#WhatIs blockquote {
+  position: relative;
+  text-align: center;
+  margin: 40px;
+  padding: 20px;
+  width: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 16px 16px 16px 16px;
+  font-style: italic;
+}
+
+#WhatIs blockquote::before {
+  position: absolute;
+  content: "";
+  top: -60px;
+  left: 50%;
+  border-bottom: rgba(0, 0, 0, 0.1) solid 30px;
+  border-top: transparent solid 30px;
+  border-left: transparent solid 30px;
+  border-right: transparent solid 30px;
+}
+
+#WhatIs blockquote div {
+  padding-top: 10px;
+  text-align: end;
+}
+
+#WhatIs blockquote a {
+  color: #0f0c29;
+}
+
+#listCards {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: rgb(255, 120, 131);
+}
+
+#listCards .sectitle {
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  text-transform: capitalize;
+  padding: 20px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+#listCards .sectitle::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 60%;
+  transform: translateX(-50%);
+  border-bottom: white 1px solid;
+}
+
+#listCards .cardSec {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+#listCards .card {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.87);
+  width: 200px;
+  height: 300px;
+  background: white;
+  margin-bottom: 70px;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
+  transition: all 0.7s ease;
+}
+
+#listCards .card .title {
+  padding: 20px;
+  box-shadow: rgb(255, 120, 131) 0px 5px 10px;
+}
+
+#listCards .card .body {
+  padding: 10px;
+}
+
+#listCards .card .body h1 {
+  color: rgb(255, 120, 131);
+  text-transform: uppercase;
+}
+
+#listCards .card .body h2 {
+  font-size: 20px;
+}
+
+#listCards .card .title svg {
+  transform-origin: center center;
+  transform: rotate(360deg);
+  transition: all 0.5s ease;
+  fill: transparent;
+  stroke: #ff7883;
+}
+
+#listCards .card .title svg path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: all 0.7s ease;
+}
+
+.cardtransit {
+  opacity: 0;
+  transform: translate(-150px, 0);
+}
+
+.fillanim {
+  animation: fill 1s ease forwards 1.4s;
+}
+
+.fabsvg {
+  animation: fabSvgs 1s ease forwards 0.75s;
+}
+
+@keyframes fabSvgs {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill {
+  to {
+    transform: rotate(0deg);
+    fill: #ff7883;
+    stroke: transparent;
+  }
+}
+
+#AboutMe {
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background: #302b63;
+  background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+}
+
+#AboutMe h1 {
+  text-align: center;
+  font-size: 2em;
+  text-transform: capitalize;
+  padding: 20px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+#AboutMe h1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 60%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: rgba(255, 255, 255, 0.5) 1px solid;
+}
+
+#AboutMe .card {
+  display: flex;
+  width: 700px;
+  align-self: center;
+  margin-bottom: 50px;
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 5px;
+  border-radius: 10px 10px 10px 10px;
+  transition: all 0.5s ease;
+}
+
+#AboutMe .header .img {
+  border-radius: 0 0 50% 0;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background: url("./image/me.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#AboutMe .header .img::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 50% 0;
+  box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
+}
+
+#AboutMe .header h2 {
+  font-size: 1em;
+  text-align: center;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.25);
+  margin-top: 10px;
+}
+
+#AboutMe .bio {
+  display: grid;
+  grid-template-rows: 1fr 0.5fr;
+
+  margin: 10px;
+}
+
+#AboutMe .bio h2 {
+  font-size: 20px;
+  grid-row: 1/2;
+}
+
+#AboutMe .bio .social {
+  grid-row: 2/3;
+  align-self: end;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+#AboutMe .bio .social .fa {
+  color: white;
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  background: rgb(255, 120, 131);
+}
+
+#AboutMe .bio .social .fa:hover {
+  opacity: 0.7;
+}
+
+#Contact {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: url("./image/contact.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+}
+
+#Contact::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#Contact h1 {
+  text-align: center;
+  position: relative;
+  text-transform: capitalize;
+  font-size: 2em;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+#Contact h1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 60%;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: rgba(0, 0, 0, 0.5) 1px solid;
+}
+
+#Contact h2 {
+  font-size: 20px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+#Contact form {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+#Contact form input[type="text"],
+#Contact form input[type="email"] {
+  border: none;
+  outline: none;
+  border-bottom: rgba(0, 0, 0, 0.2) 2px solid;
+  width: 100%;
+  height: 3em;
+  font-size: 1em;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+#Contact form div:hover input[type="text"],
+#Contact form div:hover input[type="email"] {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+#Contact form div.active input[type="text"],
+#Contact form div.active input[type="email"] {
+  border-bottom-color: transparent;
+}
+
+#Contact form div {
+  align-self: center;
+  width: 80%;
+  position: relative;
+  margin-bottom: 20px;
+}
+#Contact form div::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-bottom: rgb(255, 120, 131) 2px solid;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transition: all ease 0.5s;
+}
+
+#Contact form div.active::before {
+  transform: scaleX(1);
+}
+
+#Contact form div.name::after {
+  content: "Name";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.5);
+  transform-origin: bottom left;
+  transform: translateY(-50%);
+  transition: all 0.5s ease;
+}
+
+#Contact form div.email::after {
+  content: "Email";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 100%;
+  color: rgba(0, 0, 0, 0.5);
+  transform-origin: bottom left;
+  transform: translateY(-50%);
+  transition: all 0.5s ease;
+}
+
+#Contact form div.focused.name::after {
+  transform: translateY(-2em) scale(0.7, 0.7);
+}
+
+#Contact form div.focused.email::after {
+  transform: translateY(-2em) scale(0.7, 0.7);
+}
+
+#Contact form div.active.name::after {
+  color: rgb(255, 120, 131);
+}
+
+#Contact form div.active.email::after {
+  color: rgb(255, 120, 131);
+}
+
+#Contact form textarea {
+  align-self: center;
+  margin-bottom: 20px;
+  resize: none;
+  outline: none;
+  width: 80%;
+  font-size: 1em;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border: transparent 1px solid;
+  border-bottom: rgba(0, 0, 0, 0.2) 2px solid;
+  transition: all 0.5s ease;
+}
+
+#Contact form textarea:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+#Contact form textarea:focus {
+  border-bottom-color: rgb(255, 120, 131);
+}
+
+#Contact form input[type="submit"] {
+  width: 100px;
+  font-size: 1em;
+  align-self: center;
+  color: white;
+  padding: 5px;
+  border: rgb(255, 120, 131) 1px solid;
+  background: rgb(255, 120, 131);
+  border-radius: 16px 16px 16px 16px;
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 5px;
+  transition: all 0.5s ease;
+}
+
+#Contact form input[type="submit"]:hover {
+  opacity: 0.7;
+  box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 15px;
+}
+
+footer {
+  padding: 30px;
+  background: #302b63;
+  color: rgb(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+footer h1 {
+  font-size: 1em;
+}
+.copyLeft {
+  display: inline-block;
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    position: fixed;
+    width: 100vw;
+  }
+  .menu {
+    margin-right: 0px;
+    width: 100%;
+    height: 90vh;
+    position: fixed;
+    top: 10vh;
+    flex-direction: column;
+    background: linear-gradient(90deg, #0f0c29, #302b63, #24243e);
+    align-items: center;
+    justify-content: space-around;
+    transform-origin: top right;
+    transform: translate(100%, 0);
+    transition: transform 0.8s ease-in-out;
+    z-index: 6;
+  }
+
+  #p-section {
+    top: 10vh;
+    margin-bottom: 50px;
+  }
+
+  #WhatIs blockquote {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: auto;
+  }
+
+  .burger {
+    display: block;
+    right: 10px;
+  }
+
+  #listCards .cardsec {
+    grid-template-columns: 5% 1fr 5%;
+  }
+
+  #listCards .card {
+    grid-column: 2/3;
+    justify-self: center;
+  }
+
+  #AboutMe .card {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #AboutMe .header .img {
+    border-radius: 50% 50% 50% 50%;
+  }
+
+  #AboutMe .header .img::before {
+    border-radius: 50% 50% 50% 50%;
+  }
+
+  #Contact form div {
+    width: 100%;
+  }
+
+  #Contact form textarea {
+    width: 100%;
+  }
+}
+
+.menu-active {
+  transform: translate(0, 0);
+}
+
+.toggle .bar1 {
+  transform: rotate(45deg) translate(-5px, 15px);
+}
+
+.toggle .bar2 {
+  opacity: 0;
+}
+
+.toggle .bar3 {
+  transform: rotate(-45deg) translate(-5px, -15px);
+}
+
+@keyframes menuLiAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
